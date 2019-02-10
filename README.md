@@ -3,7 +3,7 @@
 [ircurl]: https://www.linuxserver.io/irc/
 [podcasturl]: https://www.linuxserver.io/podcast/
 [appurl]: https://www.ubnt.com/enterprise/#unifi
-[hub]: https://hub.docker.com/r/linuxserver/unifi/
+[hub]: https://hub.docker.com/r/ikifar/docker-unifi/
 
 [![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)][linuxserverurl]
 
