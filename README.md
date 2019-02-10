@@ -101,7 +101,7 @@ Use `ubnt` as the password to login and `$address` is the IP address of the host
 
 ## Versions
 
-+ **19.02.18:** Add port 6789 to support throughput test
+<!-- + **19.02.18:** Add port 6789 to support throughput test
 + **09.02.18:** Update to 5.6.30.
 + **08.02.18:** Use loop to simplify symlinks.
 + **08.01.18:** Update to 5.6.29.
@@ -121,4 +121,4 @@ Use `ubnt` as the password to login and `$address` is the IP address of the host
 + **28.08.16** Add badges to README.
 + **01.07.16** Switch to lsiobase/xenial for conformity.
 + **25.06.16** Rebase to xenial and use updated repository.
-+ **02.11.15** Initial Release.
++ **02.11.15** Initial Release. -->
