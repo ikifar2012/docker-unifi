@@ -21,6 +21,8 @@ RUN \
  apt-get install -y \
 	binutils \
 	jsvc \
+	gnupg2 \
+	gnupg1 \
 	mongodb-org-server \
 	openjdk-8-jre-headless \
 	wget && \
