@@ -10,7 +10,7 @@ LABEL maintainer="ikifar"
 ARG UNIFI_VER="5.10.20"
 
 # environment settings
-ARG DEBIAN_FRONTEND="noninteractive"
+# ARG DEBIAN_FRONTEND="noninteractive"
 
 RUN \
  echo "**** add mongo repository ****" && \
