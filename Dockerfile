@@ -18,7 +18,6 @@ RUN \
  echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list && \
  apt-get update && \
  apt-get install -y \
-	gnupg2 \
 	gnupg \
 	binutils \
 	jsvc \
