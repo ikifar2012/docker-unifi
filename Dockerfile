@@ -25,6 +25,8 @@ RUN \
 	jsvc \
 	mongodb-org-server \
 	curl \
+	libcap2 \
+	apt-transport-https \
 	openjdk-8-jre-headless \
 	wget && \
  echo "**** install unifi ****" && \
