@@ -24,6 +24,7 @@ RUN \
 	binutils \
 	jsvc \
 	mongodb-org-server \
+	curl \
 	openjdk-8-jre-headless \
 	wget && \
  echo "**** install unifi ****" && \
