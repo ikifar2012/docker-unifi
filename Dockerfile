@@ -8,26 +8,30 @@ LABEL maintainer="ikifar"
 
 # package versions
 ARG UNIFI_VER="5.10.20"
+ARG UNIFI_BRANCH="stable"
 
 # environment settings
-# ARG DEBIAN_FRONTEND="noninteractive"
+ARG DEBIAN_FRONTEND="noninteractive"
 
 RUN \
  echo "**** add mongo repository ****" && \
  apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6 && \
- echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list && \
-#  apt-get update –fix-missing -y && \
-#  apt-get install -f && \
+ echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" >> /etc/apt/sources.list.d/mongo.list && \
+ echo "**** install packages ****" && \
  apt-get update && \
- apt install mongodb-org-server -y && \
-#  apt-get update –fix-missing -y && \
-#  apt-get install -f && \
  apt-get install -y \
 	binutils \
 	jsvc \
+	mongodb-org-server \
 	openjdk-8-jre-headless \
 	wget && \
  echo "**** install unifi ****" && \
+ if [ -z ${UNIFI_VER+x} ]; then \
+ 	UNIFI_VER=$(curl -sX GET http://dl-origin.ubnt.com/unifi/debian/dists/${UNIFI_BRANCH}/ubiquiti/binary-amd64/Packages \
+	|grep -A 7 -m 1 'Package: unifi' \
+	| awk -F ': ' '/Version/{print $2;exit}' \
+	| awk -F '-' '{print $1}'); \
+ fi && \
  curl -o \
  /tmp/unifi.deb -L \
 	"http://dl.ubnt.com/unifi/${UNIFI_VER}/unifi_sysvinit_all.deb" && \
