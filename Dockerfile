@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM lsiobase/ubuntu:18.04
 
 # set version label
 ARG BUILD_DATE
