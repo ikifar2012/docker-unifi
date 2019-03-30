@@ -14,14 +14,14 @@ ARG UNIFI_VER="5.10.20"
 
 RUN \
  echo "**** add mongo repository ****" && \
- apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 68818C72E52529D4 && \
- echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.0.list && \
+ apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6 && \
+ echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/3.4 multiverse" >> /etc/apt/sources.list.d/mongo.list \
  apt-get update && \
- apt install gnupg -y \
+#  apt install gnupg -y \
  apt-get install -y \
 	binutils \
 	jsvc \
-	mongodb-org \
+	mongodb-org-server \
 	openjdk-8-jre-headless \
 	wget && \
  echo "**** install unifi ****" && \
