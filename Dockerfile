@@ -7,7 +7,7 @@ LABEL build_version="version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="ikifar"
 
 # package versions
-ARG UNIFI_VER="5.12.35"
+ARG UNIFI_VER="5.12.66"
 ARG UNIFI_BRANCH="stable"
 
 # environment settings
