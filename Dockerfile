@@ -17,7 +17,7 @@ RUN \
  echo "**** add mongo repository ****" && \
  apt-get update && apt-get install -y gnupg2 wget && \
  wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | apt-key add - && \
- echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list && \
+ echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.2.list && \
  echo "**** install packages ****" && \
  apt-get update && \
  apt-get install -y \
@@ -27,8 +27,8 @@ RUN \
 	curl \
 	libcap2 \
 	apt-transport-https \
-	openjdk-8-jre-headless \
-	wget && \
+	openjdk-8-jre-headless && \
+	
  echo "**** install unifi ****" && \
  if [ -z ${UNIFI_VER+x} ]; then \
  	UNIFI_VER=$(curl -sX GET http://dl-origin.ubnt.com/unifi/debian/dists/${UNIFI_BRANCH}/ubiquiti/binary-amd64/Packages \
