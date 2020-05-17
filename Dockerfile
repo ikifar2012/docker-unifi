@@ -16,7 +16,7 @@ ARG DEBIAN_FRONTEND="noninteractive"
 RUN \
  echo "**** add mongo repository ****" && \
  apt-get update && apt-get install -y gnupg2 && \
- apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6 && \
+ wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | apt-key add - && \
  echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.3 multiverse" >> /etc/apt/sources.list.d/mongo.list && \
  echo "**** install packages ****" && \
  apt-get update && \
