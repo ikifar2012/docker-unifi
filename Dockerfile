@@ -15,9 +15,9 @@ ARG DEBIAN_FRONTEND="noninteractive"
 
 RUN \
  echo "**** add mongo repository ****" && \
- apt-get update && apt-get install -y gnupg2 wget && \
- wget -qO - https://www.mongodb.org/static/pgp/server-3.6.asc | apt-key add - && \
- echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.6.list && \
+ apt-get update && apt-get install -y gnupg2 && \
+ apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6 && \
+ echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" >> /etc/apt/sources.list.d/mongo.list && \
  echo "**** install packages ****" && \
  apt-get update && \
  apt-get install -y \
@@ -27,8 +27,8 @@ RUN \
 	curl \
 	libcap2 \
 	apt-transport-https \
-	openjdk-8-jre-headless && \
-	
+	openjdk-8-jre-headless \
+	wget && \
  echo "**** install unifi ****" && \
  if [ -z ${UNIFI_VER+x} ]; then \
  	UNIFI_VER=$(curl -sX GET http://dl-origin.ubnt.com/unifi/debian/dists/${UNIFI_BRANCH}/ubiquiti/binary-amd64/Packages \
