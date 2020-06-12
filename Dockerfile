@@ -28,6 +28,7 @@ RUN \
 	libcap2 \
 	apt-transport-https \
 	openjdk-8-jre-headless \
+	logrotate \
 	wget && \
  echo "**** install unifi ****" && \
  if [ -z ${UNIFI_VER+x} ]; then \
